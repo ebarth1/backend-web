@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Administration;
 
 use App\Http\Controllers\Controller;
 use App\Library\Administration\FoodplannerLibrary;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class FoodplannerController extends Controller {
@@ -12,18 +15,30 @@ class FoodplannerController extends Controller {
         private readonly FoodplannerLibrary $foodplannerLibrary
     ){}
 
-    public function getIngridients()
+    public function getIngridients(): JsonResponse
     {
-        return response()->json($this->foodplannerLibrary->getIngridients());
+        return response()->json([
+            "status" => Response::HTTP_OK,
+            "message" => "ingridients loaded successfull!",
+            "data" => $this->foodplannerLibrary->getIngridients()
+    ]);
     }
 
-    public function getIngridientCategories()
+    public function getIngridientCategories():JsonResponse
     {
-        return response()->json($this->foodplannerLibrary->getIngridientCategories());
+        return response()->json([
+            "status" => Response::HTTP_OK,
+            "message" => "ingridient-categories loaded successfull!",
+            "data" => $this->foodplannerLibrary->getIngridientCategories()
+        ]);
     }
 
-    public function getMeals()
+    public function getMeals(): JsonResponse
     {
-        return response()->json($this->foodplannerLibrary->getMeals());
+        return response()->json([
+            "status" => Response::HTTP_OK,
+            "message" => "meals loaded successfull!",
+            "data" => $this->foodplannerLibrary->getMeals()
+        ]);
     }
 }

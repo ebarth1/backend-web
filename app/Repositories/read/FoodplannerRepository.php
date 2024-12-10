@@ -3,10 +3,11 @@
 namespace App\Repositories\read;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 class FoodplannerRepository {
 
-    public function getIngridients()
+    public function getIngridients(): Collection
     {
         return DB::table('backend_web.admin_fp_ingridients')
             ->select([
@@ -19,7 +20,7 @@ class FoodplannerRepository {
             ->get();
     }
 
-    public function getIngridientCategories()
+    public function getIngridientCategories(): Collection
     {
         return DB::table('backend_web.admin_fp_ingridients_category')
             ->select([
@@ -32,7 +33,7 @@ class FoodplannerRepository {
             ->get();
     }
 
-    public function getMeals()
+    public function getMeals(): Collection
     {
         return DB::table('backend_web.admin_fp_meals')
             ->select([

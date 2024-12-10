@@ -9,19 +9,19 @@ class FoodplannerLibrary {
         private readonly FoodplannerReadRepository $foodplannerReadRepository
     ){}
 
-    public function getIngridients()
+    public function getIngridients(): array
     {
-        return $this->foodplannerReadRepository->getIngridients();
+        return $this->foodplannerReadRepository->getIngridients()->toArray();
     }
 
-    public function getIngridientCategories()
+    public function getIngridientCategories(): array
     {
-        return $this->foodplannerReadRepository->getIngridientCategories();
+        return $this->foodplannerReadRepository->getIngridientCategories()->toArray();
     }
 
-    public function getMeals()
+    public function getMeals(): array
     {
-        return $this->foodplannerReadRepository->getMeals();
+        return $this->foodplannerReadRepository->getMeals()->toArray();
     }
 
 }
